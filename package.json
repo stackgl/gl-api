@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hughsk/gl-api.git"
+    "url": "git://github.com/stackgl/gl-api.git"
   },
   "keywords": [
     "gl",
@@ -34,8 +34,8 @@
     "documentation",
     "data"
   ],
-  "homepage": "https://github.com/hughsk/gl-api",
+  "homepage": "https://github.com/stackgl/gl-api",
   "bugs": {
-    "url": "https://github.com/hughsk/gl-api/issues"
+    "url": "https://github.com/stackgl/gl-api/issues"
   }
 }
