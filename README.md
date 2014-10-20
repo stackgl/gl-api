@@ -35,6 +35,10 @@ Where `api` is an array, containing the following properties:
 * `also`: an array of related properties/variables, each with a `name` and a
   `href` linking to the relevant OpenGL ES Reference Page.
 
+## Contributing
+
+See [stackgl/contributing](http://github.com/stackgl/contributing).
+
 ## License
 
 MIT. See [LICENSE.md](http://github.com/hughsk/gl-api/blob/master/LICENSE.md) for details.
