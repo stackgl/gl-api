@@ -1,0 +1,41 @@
+{
+  "name": "gl-api",
+  "version": "1.0.0",
+  "description": "A JSON listing of the WebGL 1.0 API",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "browserify test.js | smokestack --tap | tap-spec",
+    "prepublish": "node index.js > api.json"
+  },
+  "author": {
+    "name": "Hugh Kennedy",
+    "email": "hughskennedy@gmail.com",
+    "url": "http://hughsk.io/"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "cheerio": "^0.17.0",
+    "map-limit": "0.0.1",
+    "request": "^2.45.0",
+    "sliced": "0.0.5",
+    "tape": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/gl-api.git"
+  },
+  "keywords": [
+    "gl",
+    "stackgl",
+    "webgl",
+    "api",
+    "list",
+    "documentation",
+    "data"
+  ],
+  "homepage": "https://github.com/hughsk/gl-api",
+  "bugs": {
+    "url": "https://github.com/hughsk/gl-api/issues"
+  }
+}
