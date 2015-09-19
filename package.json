@@ -1,6 +1,6 @@
 {
   "name": "gl-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A JSON listing of the WebGL 1.0 API",
   "main": "api.json",
   "license": "MIT",
