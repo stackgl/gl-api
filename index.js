@@ -8,21 +8,19 @@ var source = 'https://www.khronos.org/opengles/sdk/docs/man/xhtml/'
 var convert = {
     'gl.clearDepthf': 'gl.clearDepth'
   , 'gl.get': 'gl.getParameter'
+  , 'gl.genBuffers': 'gl.createBuffer'
+  , 'gl.genFramebuffers': 'gl.createFramebuffer'
+  , 'gl.genRenderbuffers': 'gl.createRenderbuffer'
+  , 'gl.genTextures': 'gl.createTexture'
+  , 'gl.deleteBuffers': 'gl.deleteBuffer'
+  , 'gl.deleteFramebuffers': 'gl.deleteFramebuffer'
+  , 'gl.deleteRenderbuffers': 'gl.deleteRenderbuffer'
+  , 'gl.deleteTextures': 'gl.deleteTexture'
+  , 'gl.depthRangef': 'gl.depthRange'
 }
 
 var exclude = [
     'gl.shaderBinary'
-  , 'gl.clearDepthf'
-  , 'gl.deleteBuffers'
-  , 'gl.deleteFramebuffers'
-  , 'gl.deleteRenderbuffers'
-  , 'gl.deleteTextures'
-  , 'gl.depthRangef'
-  , 'gl.genBuffers'
-  , 'gl.genFramebuffers'
-  , 'gl.genRenderbuffers'
-  , 'gl.genTextures'
-  , 'gl.get'
   , 'gl.getBufferParameteriv'
   , 'gl.getFramebufferAttachmentParameteriv'
   , 'gl.getProgramiv'
@@ -82,6 +80,7 @@ function getMethodData(name, href, done) {
     return prefix + 'gl.' + method.charAt(0).toLowerCase() + method.slice(1)
   })
 
+  var orig = name
   name = convert[name] || name
   if (exclude.indexOf(name) !== -1) return done()
 
@@ -105,11 +104,12 @@ function getMethodData(name, href, done) {
     var shorter     = getShorter($, href)
     var spec        = getSpec($, href)
     var also        = getAlso($, href)
-
     // excluded for now:
     // var description = getDescription($, href)
 
-    done(null, {
+    spec.usage = spec.usage.replace(orig, name)
+
+    var data = {
         name: name
       , kind: 'function'
       , description: shorter
@@ -117,7 +117,16 @@ function getMethodData(name, href, done) {
       , parameters: spec.parameters
       , href: href
       , also: also
-    })
+    }
+
+    if (!name.indexOf('gl.create')) {
+      changeCreateFunctions(data)
+    }
+    if (!name.indexOf('gl.delete')) {
+      changeDeleteFunctions(data)
+    }
+
+    done(null, data)
   })
 }
 
@@ -223,4 +232,26 @@ function getAlso($, href) {
       , name: $el.text()
     }
   }).filter(Boolean)
+}
+
+function changeCreateFunctions(data) {
+  var classname = 'WebGL' + data.name.replace('gl.create', '')
+
+  data.parameters = {}
+  data.description = 'Creates a new ' + classname + ' instance.'
+  data.usage = classname + ' ' + data.name + '();'
+
+  return data
+}
+
+function changeDeleteFunctions(data) {
+  var classname = 'WebGL' + data.name.replace('gl.delete', '')
+  var arg = data.name.replace('gl.delete', '').toLowerCase()
+
+  data.parameters = {}
+  data.parameters[arg] = 'The ' + classname + ' to delete.'
+  data.description = 'Deletes a ' + classname + ' instance.'
+  data.usage = classname + ' ' + data.name + '(' + classname + ' ' + arg + ');'
+
+  return data
 }

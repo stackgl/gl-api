@@ -553,7 +553,7 @@
     "name": "gl.clearDepth",
     "kind": "function",
     "description": "Specify the clear value for the depth buffer.",
-    "usage": "void gl.clearDepthf(Number depth); ",
+    "usage": "void gl.clearDepth(Number depth); ",
     "parameters": {
       "depth": "Specifies the depth value used when the depth buffer is cleared. The\n                    initial value is 1."
     },
@@ -851,8 +851,8 @@
   {
     "name": "gl.createProgram",
     "kind": "function",
-    "description": "Create a program object.",
-    "usage": "Number gl.createProgram(void); ",
+    "description": "Creates a new WebGLProgram instance.",
+    "usage": "WebGLProgram gl.createProgram();",
     "parameters": {},
     "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glCreateProgram.xml",
     "also": [
@@ -897,11 +897,9 @@
   {
     "name": "gl.createShader",
     "kind": "function",
-    "description": "Create a shader object.",
-    "usage": "Number gl.createShader(GLenum shaderType); ",
-    "parameters": {
-      "shaderType": "Specifies the type of shader to be created.\n\t\t    Must be either gl.VERTEX_SHADER\n\t\t    or gl.FRAGMENT_SHADER."
-    },
+    "description": "Creates a new WebGLShader instance.",
+    "usage": "WebGLShader gl.createShader();",
+    "parameters": {},
     "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glCreateShader.xml",
     "also": [
       {
@@ -951,12 +949,60 @@
     ]
   },
   {
+    "name": "gl.deleteBuffer",
+    "kind": "function",
+    "description": "Deletes a WebGLBuffer instance.",
+    "usage": "WebGLBuffer gl.deleteBuffer(WebGLBuffer buffer);",
+    "parameters": {
+      "buffer": "The WebGLBuffer to delete."
+    },
+    "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDeleteBuffers.xml",
+    "also": [
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBindBuffer.xml",
+        "name": "gl.bindBuffer"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGenBuffers.xml",
+        "name": "gl.genBuffers"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glIsBuffer.xml",
+        "name": "gl.isBuffer"
+      }
+    ]
+  },
+  {
+    "name": "gl.deleteFramebuffer",
+    "kind": "function",
+    "description": "Deletes a WebGLFramebuffer instance.",
+    "usage": "WebGLFramebuffer gl.deleteFramebuffer(WebGLFramebuffer framebuffer);",
+    "parameters": {
+      "framebuffer": "The WebGLFramebuffer to delete."
+    },
+    "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDeleteFramebuffers.xml",
+    "also": [
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBindFramebuffer.xml",
+        "name": "gl.bindFramebuffer"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGenFramebuffers.xml",
+        "name": "gl.genFramebuffers"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glIsFramebuffer.xml",
+        "name": "gl.isFramebuffer"
+      }
+    ]
+  },
+  {
     "name": "gl.deleteProgram",
     "kind": "function",
-    "description": "Delete a program object.",
-    "usage": "void gl.deleteProgram(WebGLProgram program); ",
+    "description": "Deletes a WebGLProgram instance.",
+    "usage": "WebGLProgram gl.deleteProgram(WebGLProgram program);",
     "parameters": {
-      "program": "Specifies the program object to be\n\t\t    deleted."
+      "program": "The WebGLProgram to delete."
     },
     "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDeleteProgram.xml",
     "also": [
@@ -975,12 +1021,36 @@
     ]
   },
   {
+    "name": "gl.deleteRenderbuffer",
+    "kind": "function",
+    "description": "Deletes a WebGLRenderbuffer instance.",
+    "usage": "WebGLRenderbuffer gl.deleteRenderbuffer(WebGLRenderbuffer renderbuffer);",
+    "parameters": {
+      "renderbuffer": "The WebGLRenderbuffer to delete."
+    },
+    "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDeleteRenderbuffers.xml",
+    "also": [
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBindRenderbuffer.xml",
+        "name": "gl.bindRenderbuffer"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGenRenderbuffers.xml",
+        "name": "gl.genRenderbuffers"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glIsRenderbuffer.xml",
+        "name": "gl.isRenderbuffer"
+      }
+    ]
+  },
+  {
     "name": "gl.deleteShader",
     "kind": "function",
-    "description": "Delete a shader object.",
-    "usage": "void gl.deleteShader(WebGLShader shader); ",
+    "description": "Deletes a WebGLShader instance.",
+    "usage": "WebGLShader gl.deleteShader(WebGLShader shader);",
     "parameters": {
-      "shader": "Specifies the shader object to be deleted."
+      "shader": "The WebGLShader to delete."
     },
     "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDeleteShader.xml",
     "also": [
@@ -999,6 +1069,30 @@
       {
         "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glUseProgram.xml",
         "name": "gl.useProgram"
+      }
+    ]
+  },
+  {
+    "name": "gl.deleteTexture",
+    "kind": "function",
+    "description": "Deletes a WebGLTexture instance.",
+    "usage": "WebGLTexture gl.deleteTexture(WebGLTexture texture);",
+    "parameters": {
+      "texture": "The WebGLTexture to delete."
+    },
+    "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDeleteTextures.xml",
+    "also": [
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBindTexture.xml",
+        "name": "gl.bindTexture"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGenTextures.xml",
+        "name": "gl.genTextures"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glIsTexture.xml",
+        "name": "gl.isTexture"
       }
     ]
   },
@@ -1051,6 +1145,31 @@
       {
         "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glStencilMask.xml",
         "name": "gl.stencilMask"
+      }
+    ]
+  },
+  {
+    "name": "gl.depthRange",
+    "kind": "function",
+    "description": "Specify mapping of depth values from normalized device coordinates to window coordinates.",
+    "usage": "void gl.depthRange(Number nearVal,  Number farVal); ",
+    "parameters": {
+      "nearVal": "Specifies the mapping of the near clipping plane to window coordinates.\n                    The initial value is 0.",
+      "farVal": "Specifies the mapping of the far clipping plane to window coordinates.\n                    The initial value is 1."
+    },
+    "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDepthRangef.xml",
+    "also": [
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDepthFunc.xml",
+        "name": "gl.depthFunc"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glPolygonOffset.xml",
+        "name": "gl.polygonOffset"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glViewport.xml",
+        "name": "gl.viewport"
       }
     ]
   },
@@ -1484,6 +1603,110 @@
     ]
   },
   {
+    "name": "gl.createBuffer",
+    "kind": "function",
+    "description": "Creates a new WebGLBuffer instance.",
+    "usage": "WebGLBuffer gl.createBuffer();",
+    "parameters": {},
+    "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGenBuffers.xml",
+    "also": [
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBindBuffer.xml",
+        "name": "gl.bindBuffer"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDeleteBuffers.xml",
+        "name": "gl.deleteBuffers"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGet.xml",
+        "name": "gl.getParameter"
+      }
+    ]
+  },
+  {
+    "name": "gl.createFramebuffer",
+    "kind": "function",
+    "description": "Creates a new WebGLFramebuffer instance.",
+    "usage": "WebGLFramebuffer gl.createFramebuffer();",
+    "parameters": {},
+    "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGenFramebuffers.xml",
+    "also": [
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBindFramebuffer.xml",
+        "name": "gl.bindFramebuffer"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDeleteFramebuffers.xml",
+        "name": "gl.deleteFramebuffers"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glIsFramebuffer.xml",
+        "name": "gl.isFramebuffer"
+      }
+    ]
+  },
+  {
+    "name": "gl.createRenderbuffer",
+    "kind": "function",
+    "description": "Creates a new WebGLRenderbuffer instance.",
+    "usage": "WebGLRenderbuffer gl.createRenderbuffer();",
+    "parameters": {},
+    "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGenRenderbuffers.xml",
+    "also": [
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBindRenderbuffer.xml",
+        "name": "gl.bindRenderbuffer"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDeleteRenderbuffers.xml",
+        "name": "gl.deleteRenderbuffers"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glIsRenderbuffer.xml",
+        "name": "gl.isRenderbuffer"
+      }
+    ]
+  },
+  {
+    "name": "gl.createTexture",
+    "kind": "function",
+    "description": "Creates a new WebGLTexture instance.",
+    "usage": "WebGLTexture gl.createTexture();",
+    "parameters": {},
+    "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGenTextures.xml",
+    "also": [
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBindTexture.xml",
+        "name": "gl.bindTexture"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glCopyTexImage2D.xml",
+        "name": "gl.copyTexImage2D"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDeleteTextures.xml",
+        "name": "gl.deleteTextures"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGet.xml",
+        "name": "gl.getParameter"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetTexParameter.xml",
+        "name": "gl.getTexParameter"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glTexImage2D.xml",
+        "name": "gl.texImage2D"
+      },
+      {
+        "href": "https://www.khronos.org/opengles/sdk/docs/man/xhtml/glTexParameter.xml",
+        "name": "gl.texParameter"
+      }
+    ]
+  },
+  {
     "name": "gl.generateMipmap",
     "kind": "function",
     "description": "Generate a complete set of mipmaps for a texture object.",
@@ -1519,7 +1742,7 @@
     "name": "gl.getParameter",
     "kind": "function",
     "description": "Return the value or values of a selected parameter.",
-    "usage": "void gl.getBooleanv(GLenum pname,  Boolean * params); ",
+    "usage": "void gl.getParameterBooleanv(GLenum pname,  Boolean * params); ",
     "parameters": {
       "pname": "Specifies the parameter value to be returned.\n                    The symbolic constants in the list below are accepted.",
       "params": "Returns the value or values of the specified parameter."
