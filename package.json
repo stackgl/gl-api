@@ -15,10 +15,13 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "browserify": "^11.0.1",
     "cheerio": "^0.17.0",
     "map-limit": "0.0.1",
     "request": "^2.45.0",
     "sliced": "0.0.5",
+    "smokestack": "^3.3.1",
+    "tap-spec": "^4.1.0",
     "tape": "^3.0.1"
   },
   "repository": {
